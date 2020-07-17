@@ -91,14 +91,14 @@
                             <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">                               
                                 <div class="form-group">
                                     <label for="descripcion" class="">Descripcion</label>
-                                    <input type="text" name="descripcion" required value="{{old ('descripcion')}}" class="form-control " >
+                                    <textarea  name="descripcion" required value="{{old ('descripcion')}}" class="form-control " ></textarea>
                                 </div>
                             </div>
 
                             <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">                               
                                 <div class="form-group">
-                                    <label for="proveedor" class="">Proveedor</label>
-                                    <input type="text" name="proveedor" required value="{{old ('proveedor')}}" class="form-control " >
+                                    <label for="detalle_producto" class="">Detalle del Producto</label>
+                                    <input type="text" name="detalle_producto" required value="{{old ('detalle_producto')}}" class="form-control " >
                                 </div>
                             </div>
 

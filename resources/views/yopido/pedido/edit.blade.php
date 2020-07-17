@@ -29,8 +29,12 @@
                 <thead>
                     {{-- <th>Id</th> --}}
                     <th>Codigo producto</th>
+                    <th>Nombre</th>
                     <th>Cantidad</th>
-                    <th>Precio del Prodcuto</th>
+                    <th>Precio del Producto</th>
+                    <th>Subtotal</th>
+
+
                     {{-- <th>Precio</th>
                     <th>Imagenes</th>
                     <th>Opciones</th> --}}
@@ -40,25 +44,11 @@
                 @foreach($pedido as $ped) <!--la variable que recibo del controlador la guardo en cat y la muestro-->
                     <tr>
                         <td>{{$ped->producto_id}}</td>
+                        <td>{{$ped->nombre}}</td>
                         <td>{{$ped->cantidad}}</td>
                         <td>{{$ped->precioproducto}}</td>
-
-                        
-
-                           
-                          
-                            {{-- <form method="post" action="{{url('escritorioalmacen/producto/'.$pro->codigo) }}">
-                                {{ csrf_field() }}
-                                {{method_field('DELETE')}}
-                                <a href="{{ url('escritorioalmacen/producto/edit/'.$pro->codigo)}}"><button type="button" title="Editar" class="btn btn-info">Editar</button></a>
-                                <button type="submit" rel="tooltip" title="Eliminar" class="btn btn-danger btn-simple" >Eliminar</button>
-                                                   
-                            </form> --}}
-                        
-
-
+                        <td>{{($ped->precioproducto) * ($ped->cantidad)}}</td>
                         </td>
-
                     </tr>
                     {{-- @include('almacen.categoria.modal') --}}
                 @endforeach

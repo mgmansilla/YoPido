@@ -140,14 +140,17 @@ class PedidoController extends Controller
         
     }
 
+    // Esta funcion me realiza una sentencia sql para hacer un join con las tabla ordenes detalle y producto para sacar el nombre del producto
+
     public function edit($id)
     {
     
-    $pedido = DB::table('ordenes_detalle')->where('orden_id',$id)
+    // $pedido = DB::table('ordenes_detalle')->where('orden_id',$id)
+    // ->paginate(5);
+    $pedido = DB::table('ordenes_detalle as o')
+    ->join('productos as p','o.producto_id','=','p.codigo')
+    ->select('o.producto_id','p.producto as nombre','o.cantidad','o.precioproducto')
     ->paginate(5);
-
-
-
     return view('yopido.pedido.edit', ['pedido'=>$pedido]);
 
     }

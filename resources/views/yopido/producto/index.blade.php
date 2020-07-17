@@ -19,7 +19,7 @@
                                 <th>Nombre</th>
                                 <th>Categoria</th>
                                 <th>Precio</th>
-                                <th>Marca</th>
+                                
                                 <th>Imagenes</th>
                                 <th>Opciones</th>
 
@@ -38,7 +38,7 @@
                                     <td>{{$pro->categoria}}</td>
 
                                     <td>{{$pro->precio_compra}}</td>
-                                    <td>{{$pro->proveedor}}</td>
+                                    
 
                                     <td>
                                         <img src="{{asset('img/productos/'.$pro->imagen)}}"  height="100px" width="100px" class="img-thumbnail">

@@ -74,8 +74,8 @@
 
         <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
             <div class="form-group">
-                    <label for="proveedor" class="">Proveedor</label>
-                    <input type="text" name="proveedor" required value="{{$producto->proveedor}}" class="form-control " >
+                    <label for="detalle_producto" class="">Detalle del Producto</label>
+                    <input type="text" name="detalle_producto" required value="{{$producto->detalle_producto}}" class="form-control " >
             </div>
         </div>
 
@@ -84,7 +84,7 @@
         <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
             <div class="form-group">
                     <label for="descripcion" class="">Descripcion</label>
-                    <input type="text" name="descripcion" value="{{$producto->descripcion}}" class="form-control "placeholder="Descripcion del articulo..." >
+                    <textarea name="descripcion" value="{{$producto->descripcion}}" class="form-control "placeholder="Descripcion del articulo..." ></textarea >
             </div>
         </div>
 

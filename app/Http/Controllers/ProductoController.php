@@ -76,7 +76,7 @@ class ProductoController extends Controller
     {
         $productos=DB::table('productos as p')
             ->join('lineas as l','p.linea_id','=','l.id')
-            ->select('p.id','p.codigo','p.producto','p.precio_compra','l.linea as categoria','p.proveedor','p.imagen')
+            ->select('p.id','p.codigo','p.producto','p.precio_compra','l.linea as categoria','p.detalle_producto','p.imagen')
             ->paginate(10);
         // $productos = DB::table('productos')->paginate(15);
         // $lineas = DB::table('lineas')->get();
@@ -98,7 +98,7 @@ class ProductoController extends Controller
         $producto->codigo = $request->input('codigo');
         $producto->linea_id= $request->linea_id;
          $producto->producto=$request->input('producto');
-         $producto->proveedor = $request->input('proveedor');
+         $producto->detalle_producto = $request->input('detalle_producto');
          $producto->descripcion = $request->input('descripcion');
          $producto->precio_compra=$request->input('precio_compra');
 
@@ -137,7 +137,7 @@ class ProductoController extends Controller
         $producto->linea_id =$request->input('linea_id');
         $producto->producto = $request->input('producto');
         $producto->precio_compra = $request->input('precio_compra');
-        $producto->proveedor = $request->input('proveedor');
+        $producto->proveedor = $request->input('detalle_producto');
         $producto->descripcion = $request->input('descripcion');
 
         

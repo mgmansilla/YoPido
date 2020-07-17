@@ -5,7 +5,7 @@
 
     <div class="colg-lg-8 col-md-8 col-xs-12">
 
-        <h3>Listado de Usuarios <a href="{{url('/yopido/usuario/create')}}" ><button class="btn btn-success">Nuevo</button></h3></a>
+        <h3>Listado de Usuarios</h3>
             {{-- @include('almacen.categoria.search') --}}
     </div>
 
