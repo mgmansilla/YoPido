@@ -137,7 +137,7 @@ class ProductoController extends Controller
         $producto->linea_id =$request->input('linea_id');
         $producto->producto = $request->input('producto');
         $producto->precio_compra = $request->input('precio_compra');
-        $producto->proveedor = $request->input('detalle_producto');
+        $producto->detalle_producto = $request->input('detalle_producto');
         $producto->descripcion = $request->input('descripcion');
 
         
