@@ -84,7 +84,7 @@
         <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
             <div class="form-group">
                     <label for="descripcion" class="">Descripcion</label>
-                    <textarea name="descripcion" value="{{$producto->descripcion}}" class="form-control "placeholder="Descripcion del articulo..." ></textarea >
+                    <input name="descripcion" value="{{$producto->descripcion}}" class="form-control " >
             </div>
         </div>
 
