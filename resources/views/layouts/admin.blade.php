@@ -87,7 +87,7 @@
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-laptop"></i>
-                <span>Almacén</span>
+                <span>Compras</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
@@ -128,6 +128,17 @@
               </a>
               <ul class="treeview-menu">
                 <li><a href="{{url('/yopido/usuario/index')}}"><i class="fa fa-circle-o"></i> Usuarios</a></li>
+                
+              </ul>
+            </li>
+
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-folder"></i> <span>Reclamos y sugerencias</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="https://web.whatsapp.com/" target="_blank"><i class="fa fa-circle-o"></i>Chat</a></li>
                 
               </ul>
             </li>

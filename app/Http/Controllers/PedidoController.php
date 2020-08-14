@@ -147,7 +147,7 @@ class PedidoController extends Controller
     
     // $pedido = DB::table('ordenes_detalle')->where('orden_id',$id)
     // ->paginate(5);
-    $pedido = DB::table('ordenes_detalle as o')
+    $pedido = DB::table('ordenes_detalle as o')->where('orden_id',$id)
     ->join('productos as p','o.producto_id','=','p.codigo')
     ->select('o.producto_id','p.producto as nombre','o.cantidad','o.precioproducto')
     ->paginate(5);

@@ -18,7 +18,7 @@
                                 <th>Codigo</th>
                                 <th>Nombre</th>
                                 <th>Categoria</th>
-                                <th>Precio</th>
+                                <th>Precio venta</th>
                                 
                                 <th>Imagenes</th>
                                 <th>Opciones</th>

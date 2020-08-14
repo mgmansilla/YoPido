@@ -56,7 +56,20 @@
 
             </table>
 
+            {{--Calculo del total   --}}
+            <?php
+            $total = 0;
+            ?>
 
+
+           @foreach ($pedido as $ped)
+           <?php
+           $total += ($ped->precioproducto) * ($ped->cantidad);
+           ?>
+           @endforeach
+
+               <Strong>Total =${{$total}}</Strong>
+      
         </div>
         {{$pedido->render()}}
 
