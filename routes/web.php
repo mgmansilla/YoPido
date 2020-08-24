@@ -49,7 +49,12 @@ Route::middleware(['auth'])->group(function () {
  // Vista de los pedidos
  Route::get('yopido/pedido/index', 'PedidoController@index');
  Route::get('yopido/pedido/edit/{id}', 'PedidoController@edit');
- 
+
+
+//  Backup
+Route::get('yopido/backup/index', 'BackupController@index');
+Route::get('yopido/backup/create', 'BackupController@create');
+
  
  
  

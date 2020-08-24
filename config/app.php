@@ -178,6 +178,11 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+
+        // --------------backup----------
+        Spatie\Backup\BackupServiceProvider::class,
+        // --------------Dropbox---------------
+        App\Providers\DropboxFilesystemServiceProvider::class,
         
 
     ],

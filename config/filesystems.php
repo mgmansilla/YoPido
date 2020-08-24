@@ -62,6 +62,16 @@ return [
             'region' => env('AWS_DEFAULT_REGION'),
             'bucket' => env('AWS_BUCKET'),
         ],
+        'dropbox' => [
+            'driver' => 'dropbox',
+            // 'app_secret' => env('DROPBOX_APP_SECRET'),
+            // 'token' => env('DROPBOX_TOKEN'),
+            'authorizationToken' => env('DROPBOX_TOKEN'),
+        ],
+        'backups' => [
+            'driver' => 'local',
+            'root'   => storage_path('backups'), // that's where your backups are stored by default: storage/backups
+        ],
 
     ],
 
