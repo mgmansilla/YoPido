@@ -66,13 +66,13 @@ class BackupController extends Controller
                      $notification= 'Backup realizado con exito dirigete a';
         
                     ini_set('max_execution_time', 600);
-        
+                    dd($output);
                 
                     // return redirect()->back()->with('notification');
-                    return back()->with(compact('notification'));
+                    // return back()->with(compact('notification'));
                 } catch (Exception $e) {
                     // Flash::error($e->getMessage());
-                    Log::error($e);
+                    // Log::error($e);
                     return Response::make($e->getMessage(), 500);
                     return redirect()->back();
                 }

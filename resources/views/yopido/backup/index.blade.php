@@ -9,23 +9,37 @@
             
         <a href="{{ url('yopido/backup/create') }}"><button class="btn btn-success"> Crear nuevo backup</button></a>
 
-                @if (session('notification'))
-						<div class="alert alert-success">
-							<div class="container-fluid">
-									<div class="alert-icon">
-										<i class="material-icons">check</i>
-									</div>
-								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-									<span aria-hidden="true"><i class="material-icons">clear</i></span>
-								</button>
-									<b>Perfecto:</b>{{ session('notification') }}
-							</div>
-						</div>
-		        @endif
-           
-           
+            
        
             {{-- @include('almacen.categoria.search') --}}
+    </div>
+    <style>
+
+        .margen{
+        margin-top: 50px;
+        }
+
+    </style>
+    
+
+    <div class="margen">
+        <div class="col-lg-12 col-md-12 col-xs-12">
+
+                @if (session('notification'))
+                <div class="alert alert-success margen">
+                    <div class="container-fluid">
+                            <div class="alert-icon">
+                                <i class="material-icons">Mensaje</i>
+                            </div>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true"><i class="material-icons">Cerrar</i></span>
+                        </button>
+                            <b>Perfecto:</b>{{ session('notification') }}<li><a href="https://www.dropbox.com/home/Aplicaciones/Backups-YoPido/http---localhost" target="_blank"><i class="fa fa-dropbox"></i>Dropbox</a></li>
+                    </div>
+                </div>
+            @endif
+
+         </div>
     </div>
 
         
