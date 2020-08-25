@@ -7,7 +7,7 @@
 
         <h3>Backups</h3>
             
-        <a href="{{ url('backup/create') }}"><button class="btn btn-success"> Crear nuevo backup</button></a>
+        <a href="{{ url('yopido/backup/create') }}"><button class="btn btn-success"> Crear nuevo backup</button></a>
 
                 @if (session('notification'))
 						<div class="alert alert-success">
