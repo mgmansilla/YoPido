@@ -34,7 +34,7 @@
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true"><i class="material-icons">Cerrar</i></span>
                         </button>
-                            <b>Perfecto:</b>{{ session('notification') }}<li><a href="https://www.dropbox.com/home/Aplicaciones/Backups-YoPido/http---localhost" target="_blank"><i class="fa fa-dropbox"></i>Dropbox</a></li>
+                            <b>Perfecto:</b>{{ session('notification') }}<li><a href="https://www.dropbox.com/home/Aplicaciones/Backups-YoPido/Laravel" target="_blank"><i class="fa fa-dropbox"></i>Dropbox</a></li>
                     </div>
                 </div>
             @endif
