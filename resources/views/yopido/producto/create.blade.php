@@ -66,7 +66,21 @@
                                 <div class="form-group">
                                     <label for="precio_compra" class="">Precio</label>
                                     <input type="number" step="0.01" min="0" max="999999999" name="precio_compra" required value="{{old ('precio_compra')}}" class="form-control " >
-                                    {{-- <input type="text" name="precio_compra" required value="{{old ('precio_compra')}}" class="form-control "placeholder="precio..." > --}}
+                                    
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                                <div class="form-group">
+                                    <label for="precio_comprado" class="">Precio Compra</label>
+                                    <input type="number" step="0.01" min="0" max="999999999" name="precio_comprado" required value="{{old ('precio_comprado')}}" class="form-control " >
+                                    
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                                <div class="form-group">
+                                    <label for="stock" class="">Stock</label>
+                                    <input type="number"  name="stock" required value="{{old ('stock')}}" class="form-control " >
+                                    
                                 </div>
                             </div>
 

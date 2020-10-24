@@ -56,16 +56,31 @@ class PedidoController extends Controller
                                             'orden_id'=>$orden_id,
                                             'cantidad'=>$cantidad,
                                             'precioproducto'=>$precioproducto]);
-                        }
-                   
-                            
 
-                          
+                            $stock=DB::table('productos')
+                            ->where('codigo',$producto_id)
+                            ->value('stock');
+                            
+                            if ($cantidad > $stock) {
+
+                                $respuesta = array('error' => TRUE,
+                                   'mensaje'=>'Cantidad mayor a stock disponible por favor ingrese una cantidad menor' );
+                                  
+                                return $respuesta;
+                            } else {
+                                $actualizar_stock=DB::table('productos')
+                             ->where('codigo',$producto_id)
+                             ->update(['stock'=>  $stock - $cantidad ]);
+                                
+                            }
+                                                         
+                        }                              
                             $respuesta = array(
                                 'mensaje'=>FALSE,
                                 'orden_id'=> $orden_id,
                                 'producto_id'=>$producto_id,
-                                'cantidad'=>$cantidad
+                                'cantidad'=>$cantidad,
+                                'stock'=> $actualizar_stock
                             );
 
                             return $respuesta;    
@@ -152,6 +167,8 @@ class PedidoController extends Controller
     ->select('o.producto_id','p.producto as nombre','o.cantidad','o.precioproducto')
     ->paginate(5);
     return view('yopido.pedido.edit', ['pedido'=>$pedido]);
+
+
 
     }
 

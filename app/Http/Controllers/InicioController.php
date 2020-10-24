@@ -25,12 +25,13 @@ class InicioController extends Controller
 
             
         }else{
+            
             $token = str_random(40);
             //$usuario= $id_usuario->get('id');
             $id_usuario = DB::table('login')->where('correo', $correo)->value('id');
             $usuario = DB::table('login')
             ->where('id', $id_usuario)
-            ->update(['token'=>$token]) ;
+            ->update(['token'=>$token]);
             $respuesta = array('error' => FALSE,
                                 'mensaje'=>'Succes',
                                 'id_usuario'=> $id_usuario,

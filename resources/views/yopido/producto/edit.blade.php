@@ -67,8 +67,21 @@
 
         <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
             <div class="form-group">
-                    <label for="precio_compra" class="">Precio</label>
+                    <label for="precio_compra" class="">Precio Venta</label>
                     <input type="text" name="precio_compra" required value="{{$producto->precio_compra}}" class="form-control " >
+            </div>
+        </div>
+        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+            <div class="form-group">
+                    <label for="precio_comprado" class="">Precio Compra</label>
+                    <input type="text" name="precio_comprado" required value="{{$producto->precio_comprado}}" class="form-control " >
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+            <div class="form-group">
+                    <label for="stock" class="">Stock</label>
+                    <input type="text" name="stock" required value="{{$producto->stock}}" class="form-control " >
             </div>
         </div>
 

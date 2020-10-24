@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 
 class ProductoController extends Controller
 {
-     //ruta:http://127.0.0.1:8000/Prueba/2
+     //ruta:http://127.0.0.1:8000/todos/1
      public function index($pagina=0)
      {
          $pagina = $pagina *10;
@@ -76,7 +76,7 @@ class ProductoController extends Controller
     {
         $productos=DB::table('productos as p')
             ->join('lineas as l','p.linea_id','=','l.id')
-            ->select('p.id','p.codigo','p.producto','p.precio_compra','l.linea as categoria','p.detalle_producto','p.imagen')
+            ->select('p.id','p.codigo','p.producto','p.precio_compra','l.linea as categoria','p.detalle_producto','p.precio_comprado','p.stock','p.imagen')
             ->paginate(10);
         // $productos = DB::table('productos')->paginate(15);
         // $lineas = DB::table('lineas')->get();
@@ -101,6 +101,8 @@ class ProductoController extends Controller
          $producto->detalle_producto = $request->input('detalle_producto');
          $producto->descripcion = $request->input('descripcion');
          $producto->precio_compra=$request->input('precio_compra');
+         $producto->precio_comprado=$request->input('precio_comprado');
+         $producto->stock=$request->input('stock');
 
         //  if ($producto->linea =="") {  
         //     $producto->linea = 'General';
@@ -137,6 +139,8 @@ class ProductoController extends Controller
         $producto->linea_id =$request->input('linea_id');
         $producto->producto = $request->input('producto');
         $producto->precio_compra = $request->input('precio_compra');
+        $producto->precio_comprado=$request->input('precio_comprado');
+        $producto->stock=$request->input('stock');
         $producto->detalle_producto = $request->input('detalle_producto');
         $producto->descripcion = $request->input('descripcion');
 

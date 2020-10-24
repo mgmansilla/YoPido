@@ -19,6 +19,8 @@
                                 <th>Nombre</th>
                                 <th>Categoria</th>
                                 <th>Precio venta</th>
+                                <th>Precio compra</th>
+                                <th>Stock</th>
                                 
                                 <th>Imagenes</th>
                                 <th>Opciones</th>
@@ -38,6 +40,8 @@
                                     <td>{{$pro->categoria}}</td>
 
                                     <td>{{$pro->precio_compra}}</td>
+                                    <td>{{$pro->precio_comprado}}</td>
+                                    <td>{{$pro->stock}}</td>
                                     
 
                                     <td>
