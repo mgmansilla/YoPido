@@ -142,17 +142,20 @@ class PedidoController extends Controller
    
     //-------------------------------------------------------------------------------WEB--------------------------------------------------------------------------
     
-    public function index()
+    public function index(Request $request)
     {
-        $ordenes=DB::table('ordenes as o')
-        ->join('login as u','o.usuario_id','=','u.id')
-        ->select('o.id','u.correo as usuario','o.creado_en')
-        ->orderBy('id', 'desc')
-        ->paginate(10);
-
-
-        return view('yopido.pedido.index', ['ordenes' => $ordenes]); 
-        
+        if ($request) {
+            $query=trim($request->get('searchText'));
+            $ordenes=DB::table('ordenes as o')
+            ->join('login as u','o.usuario_id','=','u.id')
+            ->select('o.id','u.correo as usuario','o.creado_en')
+            ->orderBy('id', 'desc')
+            ->where('u.correo','LIKE','%'.$query.'%')
+            ->orwhere('o.creado_en','LIKE','%'.$query.'%')
+            ->paginate(10);
+            
+            return view('yopido.pedido.index', ['ordenes' => $ordenes,'searchText'=>$query]); 
+        }
     }
 
     // Esta funcion me realiza una sentencia sql para hacer un join con las tabla ordenes detalle y producto para sacar el nombre del producto

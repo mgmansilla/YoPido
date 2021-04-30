@@ -19,8 +19,6 @@
                 </div>
                 @endif
 
-                {{-- {!!Form::open(array('url'=>'','method'=>'POST','autocomplete'=>'off')) !!}
-                {{Form::token()}} --}}
                 
                 <form action="{{url('yopido/categoria/')}}" method="post">
                     {{csrf_field() }}
@@ -40,6 +38,7 @@
                         
                         <button type="reset" class="btn btn-danger">Cancelar</button>
                         
+                        <a href="{{url('yopido/categoria/index')}}"><button type="button" title="Atras" class="btn btn-info">Atras</button></a>
                         
                     </div>
 

@@ -72,16 +72,23 @@ class ProductoController extends Controller
     // ------- WEB-----------------------------------------------------------------------------------------------------
 
 
-    public function indexWeb()
+    public function indexWeb(Request $request)
     {
-        $productos=DB::table('productos as p')
+        if ($request) {
+            $query=trim($request->get('searchText'));
+            $productos=DB::table('productos as p')
             ->join('lineas as l','p.linea_id','=','l.id')
             ->select('p.id','p.codigo','p.producto','p.precio_compra','l.linea as categoria','p.detalle_producto','p.precio_comprado','p.stock','p.imagen')
+            ->where('p.producto','LIKE','%'.$query.'%')
+            ->orwhere('p.codigo','LIKE','%'.$query.'%')
+            ->orderBy('p.id','desc')
             ->paginate(10);
+            return view('yopido.producto.index', ['productos' => $productos,'searchText'=>$query]);
+            
+        }
+        
         // $productos = DB::table('productos')->paginate(15);
         // $lineas = DB::table('lineas')->get();
-
-        return view('yopido.producto.index', ['productos' => $productos]);
     }
 
     public function create()

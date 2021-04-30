@@ -7,6 +7,17 @@
 
         <h3>Listado de Usuarios</h3>
             {{-- @include('almacen.categoria.search') --}}
+            <form method="GET" action="{{url('yopido/usuario/index')}}"  >
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="searchText" placeholder="Buscar..." value="{{$searchText}}">
+                            <span class="input-group-btn">
+                                
+                                <button type="submit" class="btn btn-primary">Buscar</button>
+                            </span>
+                    </div>
+                </div>
+            </form>
     </div>
 
             <div class="row">
@@ -14,14 +25,14 @@
                     <div class="table responsive">
                         <table class="table table-striped table-bordered table-condensed table-hover">
                             <thead>
-                                {{-- <th>Id</th> --}}
-                                <th>Usuarios</th>
+                                <th>Nombre y Apellido</th>
+                                <th>Email</th>
                                 <th>Opciones</th>
 
                             </thead>
                             @foreach($usuarios as $usuario) <!--la variable que recibo del controlador la guardo en cat y la muestro-->
                                 <tr>
-                                    {{-- <td>{{$linea->id}}</td> --}}
+                                    <td>{{$usuario->nombre_completo}}</td>
                                     <td>{{$usuario->correo}}</td>
                                     
                                     <td>

@@ -44,10 +44,20 @@ class LoginController extends Controller
 
 // -----------------------------------------------------------WEB-------------------------------------------------------
 
-    public function index()
+    public function index(Request $request)
     {
-        $usuarios= DB::table('login')->paginate(10);
-        return view('yopido.usuario.index',['usuarios'=>$usuarios]);
+        if ($request) {
+            $query=trim($request->get('searchText'));
+            $usuarios= DB::table('login')
+            ->where('nombre_completo','LIKE','%'.$query.'%')
+            ->orwhere('correo','LIKE','%'.$query.'%')
+            ->orderBy('id','desc')
+            ->paginate(10);
+            return view('yopido.usuario.index',['usuarios'=>$usuarios,'searchText'=>$query]);
+            
+        }
+        
+        
     }
 
     public function create()

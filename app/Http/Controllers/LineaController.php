@@ -24,11 +24,17 @@ class LineaController extends Controller
     //------------- WEB--------------------------------------------------------
 
    
-     public function indexWeb(Linea $lineas)
+     public function indexWeb(Request $request)
     {
-        $lineas = DB::table('lineas')->paginate(15);
-
-        return view('yopido.categoria.index', ['lineas' => $lineas]);
+        if ($request) {
+            $query=trim($request->get('searchText'));
+            $lineas = DB::table('lineas')
+            ->where('linea','LIKE','%'.$query.'%')
+            ->orderBy('id','desc')
+            ->paginate(10);
+            return view('yopido.categoria.index', ['lineas' => $lineas,'searchText'=>$query]);
+        }
+       
     }
 
 

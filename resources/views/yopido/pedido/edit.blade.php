@@ -76,7 +76,7 @@
     </div>
 
 </div>
-
+<a href="{{url('yopido/pedido/index')}}"><button type="button" title="Atras" class="btn btn-info">Atras</button></a>
 </div>
 
 

@@ -120,7 +120,8 @@
             <button type="submit" class="btn btn-primary">Guardar</button>
             
             <button type="reset" class="btn btn-danger">Cancelar</button>
-            
+
+            <a href="{{url('yopido/producto/index')}}"><button type="button" title="Atras" class="btn btn-info">Atras</button></a>
             
         </div>
     </div>    

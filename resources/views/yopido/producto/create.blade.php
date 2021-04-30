@@ -20,9 +20,6 @@
                 @endif
         </div>
   </div>
-{{-- 
-                {!!Form::open(array('url'=>'almacen/articulo','method'=>'POST','autocomplete'=>'off','files'=>'true')) !!}
-                {{Form::token()}} --}}
 
                 <form action="{{url('yopido/producto/')}}" method="post" enctype="multipart/form-data">
 
@@ -64,7 +61,7 @@
 
                             <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                                 <div class="form-group">
-                                    <label for="precio_compra" class="">Precio</label>
+                                    <label for="precio_compra" class="">Precio Venta</label>
                                     <input type="number" step="0.01" min="0" max="999999999" name="precio_compra" required value="{{old ('precio_compra')}}" class="form-control " >
                                     
                                 </div>
@@ -84,14 +81,6 @@
                                 </div>
                             </div>
 
-
-        {{-- 
-                            <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                                <div class="form-group">
-                                        <label for="stock" class="">Stock</label>
-                                        <input type="text" name="stock" required value="{{old ('stock')}}" class="form-control "placeholder="Stock del articulo..." >
-                                </div>
-                            </div> --}}
 
 
 
@@ -125,6 +114,9 @@
                         <button type="submit" class="btn btn-primary">Guardar</button>
 
                         <button type="reset" class="btn btn-danger">Cancelar</button>
+
+                        <a href="{{url('yopido/producto/index')}}"><button type="button" title="Atras" class="btn btn-info">Atras</button></a>
+
 
 
                     </div>

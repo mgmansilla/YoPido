@@ -6,7 +6,17 @@
     <div class="colg-lg-8 col-md-8 col-xs-12">
 
         <h3>Listado de Productos <a href="{{url('yopido/producto/create')}}" ><button class="btn btn-success">Nuevo</button></h3></a>
-            {{-- @include('almacen.categoria.search') --}}
+            <form method="GET" action="{{url('yopido/producto/index')}}"  >
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="searchText" placeholder="Buscar..." value="{{$searchText}}">
+                            <span class="input-group-btn">
+                                
+                                <button type="submit" class="btn btn-primary">Buscar</button>
+                            </span>
+                    </div>
+                </div>
+            </form>
     </div>
 
             <div class="row">
