@@ -93,10 +93,7 @@ class PedidoController extends Controller
 
     public function obtener_pedidos($id_usuario,$token) 
     {
-         // verificar token e id del usuario
-
         
-
         $verifica = DB::table('login')
                     ->where('id', $id_usuario)
                     ->where('token',$token)
@@ -107,26 +104,25 @@ class PedidoController extends Controller
                                 'mensaje'=>'Usuario y/o token incorrectos' );
                          
         }
-        $query=DB::select('SELECT * FROM `ordenes` where usuario_id=' .$id_usuario);
+        $query=DB::select('SELECT * FROM `ordenes` where usuario_id=' .$id_usuario. ' ORDER BY ordenes.id DESC');
+        $cantidad_ordenes =DB::select('SELECT COUNT(*) FROM ordenes');
         $ordenes = array();
 
         foreach ($query as $row) {
             //con esta sentencia sql nos muestra los detalles de producto y relaciona la tabla orden con productos para obetener el detalle del  codigo
-            // $query_detalle = $this->db->query('SELECT a.orden_id, b.* FROM `ordenes_detalle`a INNER JOIN productos b on a.producto_id = b.codigo WHERE orden_id= '.$row->id);
-          
-            //$query_detalle = DB::raw('SELECT a.orden_id, b.* FROM `ordenes_detalle`a INNER JOIN productos b on a.producto_id = b.codigo WHERE orden_id= '.$row->id);
-            //mostramos la orden que obtenemos
+            $query_detalle=DB::select('SELECT a.orden_id,a.cantidad,b.* FROM `ordenes_detalle`a INNER JOIN productos b on a.producto_id = b.codigo WHERE orden_id= '.$row->id);
+            $orden = array(
 
-            $query_detalle = DB::table('orden_detalle')
-                              ->select('SELECT orden_id, b.* FROM `ordenes_detalle`a');
-            $orden= array(
-
+                'ordenes_realizadas'=>$cantidad_ordenes,
                 'id'=>$row->id,
                 'creado_en'=>$row->creado_en,
+                'detalle'=>$query_detalle
+                
             );
 
             //insertamos la orden
-            array_push($ordenes ,$orden);
+             array_push($ordenes ,$orden);
+            
         }
 
         $respuesta = array('error'=>FALSE,
@@ -134,9 +130,6 @@ class PedidoController extends Controller
                         );
 
         return $respuesta;
-
-        
-
     }
 
    
